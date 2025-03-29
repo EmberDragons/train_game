@@ -83,6 +83,7 @@ func menu():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(Engine.time_scale)
 	current_score+=delta
 	if timer_time>0:
 		timer_time-=delta
@@ -251,7 +252,7 @@ func lost():
 	end_screen.visible = true
 	quit_panel.visible = true
 	button.visible = true
-	Engine.time_scale=0.00001
+	Engine.time_scale=0
 
 func screen_size():
 	var viewport_size = get_viewport().get_visible_rect().size

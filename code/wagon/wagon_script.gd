@@ -109,7 +109,6 @@ func check_speed_in_turns():
 				
 			is_exploding=true
 			apply_once=true
-			Engine.time_scale=0.8
 			speed=2.0
 			power = 70.0
 			last_position=position
@@ -138,7 +137,6 @@ func check_for_out_of_track():
 			
 		is_exploding=true
 		apply_once=true
-		Engine.time_scale=0.8
 		speed=2.0
 		power = 70.0
 		last_position=position
@@ -170,7 +168,6 @@ func explosion():
 		audio_exp_once=true
 	if timer_back:
 		timer_back=false
-		Engine.time_scale=1.0
 	
 	if speed>1.0:
 		speed-=0.002

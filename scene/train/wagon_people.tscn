@@ -85,7 +85,7 @@ shader_parameter/dirstortionTexture = SubResource("NoiseTexture2D_yga51")
 size = Vector2(2, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twsxn"]
-size = Vector2(20, 11.25)
+size = Vector2(15, 7.5)
 
 [node name="wagon" type="CharacterBody2D"]
 z_index = 2
@@ -193,7 +193,8 @@ shape = SubResource("RectangleShape2D_juxgq")
 [node name="collision" type="Area2D" parent="." groups=["wagon"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision" groups=["wagon"]]
-position = Vector2(-2.23517e-07, -5.625)
+position = Vector2(5.21541e-07, -3.75)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_twsxn")
 
 [node name="rotate_point" type="Sprite2D" parent="."]

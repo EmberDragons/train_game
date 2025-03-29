@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 		else:
 			#perdu de la thune
 			if train != null:
-				train.money-=current_pers*train.price_per_people
+				train.money-=current_pers*train.start_price_per_people
 			current_pers=0
 
 func update_ui():

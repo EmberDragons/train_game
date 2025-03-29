@@ -82,38 +82,39 @@ func button_down_pressed(i):
 			selector_game.visible = false
 			selected_button = null
 			selector.visible = false
-	if button_down.get_child(i).action == 'add_wagon':
-		var boolean = add_wagon()
-		if boolean == true:
+	if train_main.money - int(button_down.get_child(i).get_child(2).text)>0:
+		if button_down.get_child(i).action == 'add_wagon':
+			var boolean = add_wagon()
+			if boolean == true:
+				train_main.money -= int(button_down.get_child(i).get_child(2).text)
+			selector.visible = true
+			selector.position=button_down.get_child(i).position
+			await get_tree().create_timer(0.1).timeout 
+			selector.visible = false
+		if button_down.get_child(i).action == 'add_speed':
+			add_speed()
 			train_main.money -= int(button_down.get_child(i).get_child(2).text)
-		selector.visible = true
-		selector.position=button_down.get_child(i).position
-		await get_tree().create_timer(0.1).timeout 
-		selector.visible = false
-	if button_down.get_child(i).action == 'add_speed':
-		add_speed()
-		train_main.money -= int(button_down.get_child(i).get_child(2).text)
-		selector.visible = true
-		selector.position=button_down.get_child(i).position
-		await get_tree().create_timer(0.1).timeout 
-		selector.visible = false
-	if button_down.get_child(i).action == 'add_coal':
-		add_coal()
-		train_main.money -= int(button_down.get_child(i).get_child(2).text)
-		selector.visible = true
-		selector.position=button_down.get_child(i).position
-		await get_tree().create_timer(0.1).timeout 
-		selector.visible = false
-	if button_down.get_child(i).action == 'add_money':
-		add_money()
-		train_main.money -= int(button_down.get_child(i).get_child(2).text)
-		selector.visible = true
-		selector.position=button_down.get_child(i).position
-		await get_tree().create_timer(0.1).timeout 
-		selector.visible = false
+			selector.visible = true
+			selector.position=button_down.get_child(i).position
+			await get_tree().create_timer(0.1).timeout 
+			selector.visible = false
+		if button_down.get_child(i).action == 'add_coal':
+			add_coal()
+			train_main.money -= int(button_down.get_child(i).get_child(2).text)
+			selector.visible = true
+			selector.position=button_down.get_child(i).position
+			await get_tree().create_timer(0.1).timeout 
+			selector.visible = false
+		if button_down.get_child(i).action == 'add_money':
+			add_money()
+			train_main.money -= int(button_down.get_child(i).get_child(2).text)
+			selector.visible = true
+			selector.position=button_down.get_child(i).position
+			await get_tree().create_timer(0.1).timeout 
+			selector.visible = false
 		
 func add_money():
-	train_main.price_per_people*=1.20
+	train_main.price_per_people*=1.12
 func add_coal():
 	train_main.percentage_less*=0.92
 func add_speed():
@@ -267,6 +268,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					audio_manager.dest_track_a(mouse_pos*25)
 					dict_tracks[mouse_pos]["obj"].queue_free()
 					dict_tracks.erase(mouse_pos)
+				if train_main!=null:
+					train_main.money += 5
 		if Input.is_action_just_pressed("escape"):
 			is_placing = false
 			selector_game.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://8neuymfpokky"]
+[gd_scene load_steps=70 format=4 uid="uid://8neuymfpokky"]
 
 [ext_resource type="Script" path="res://code/menu_vers/main_menu_controller.gd" id="1_n6bsp"]
 [ext_resource type="PackedScene" uid="uid://bcbb8fl15kdle" path="res://scene/tracks/horizontal_forward.tscn" id="2_27vcv"]
@@ -138,7 +138,7 @@ shader_parameter/intensity = 0.065
 shader_parameter/scale_distortion = Vector2(0.2, 0.45)
 shader_parameter/speed = 0.05
 shader_parameter/scale = Vector2(0.171875, 0.148438)
-shader_parameter/y_zoom = 2.99661
+shader_parameter/y_zoom = 1.88775
 shader_parameter/noise = SubResource("NoiseTexture2D_5viqm")
 shader_parameter/noise_top = SubResource("NoiseTexture2D_fie1k")
 
@@ -641,9 +641,17 @@ shader_parameter/intensity = 0.065
 shader_parameter/scale_distortion = Vector2(0.2, 0.45)
 shader_parameter/speed = 0.05
 shader_parameter/scale = Vector2(1.75, 0.140625)
-shader_parameter/y_zoom = 2.99661
+shader_parameter/y_zoom = 1.88775
 shader_parameter/noise = SubResource("NoiseTexture2D_8nkyg")
 shader_parameter/noise_top = SubResource("NoiseTexture2D_p174q")
+
+[sub_resource type="LabelSettings" id="LabelSettings_sln6j"]
+font = ExtResource("30_5dphb")
+font_size = 20
+outline_size = 2
+outline_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.551)
 
 [sub_resource type="LabelSettings" id="LabelSettings_35v0t"]
 font = ExtResource("30_5dphb")
@@ -1162,12 +1170,21 @@ position = Vector2(223, -127)
 scale = Vector2(1.75, 0.140625)
 
 [node name="me" type="Label" parent="."]
-offset_left = 165.0
-offset_top = 92.0
-offset_right = 205.0
-offset_bottom = 115.0
+offset_left = 154.0
+offset_top = 79.0
+offset_right = 330.0
+offset_bottom = 154.0
 scale = Vector2(0.440001, 0.48)
-text = "EasyDoor
+text = "EasyDoor"
+label_settings = SubResource("LabelSettings_sln6j")
+
+[node name="me2" type="Label" parent="."]
+offset_left = 162.0
+offset_top = 92.0
+offset_right = 338.0
+offset_bottom = 167.0
+scale = Vector2(0.440001, 0.48)
+text = "Jean1000
 ZapSplat"
 label_settings = SubResource("LabelSettings_35v0t")
 

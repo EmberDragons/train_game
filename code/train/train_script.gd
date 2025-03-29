@@ -31,7 +31,8 @@ var new_rotation = 0
 #money var --------------------------------------------------------------------------------------
 var money = 100
 var price_per_coal = 6
-var price_per_people = 2
+var price_per_people = 3
+var start_price_per_people = 3
 @onready var money_ui: Label = $"../../ui/right_top/Container/PanelContainer/money_text"
 
 #passengers var----------------------------------------------------------------------------------
@@ -125,9 +126,7 @@ func fly_away(n_direction = null):
 	hit_effect()
 
 func check_speed_in_turns():
-	if current_Speed>=MAX_SPEED*0.7:
-		spark_part.emitting = true
-	if current_Speed>=MAX_SPEED*0.9 and apply_once==false:
+	if current_Speed>=MAX_SPEED*0.94 and apply_once==false:
 		spark_part.emitting = false
 		#we boom
 		vectorDir = Vector2(0,0)
@@ -323,9 +322,10 @@ func clamp_speed_addon():
 func _physics_process(delta: float) -> void:
 	if current_Speed<MAX_SPEED*0.7:
 		spark_part.emitting = false
-	if current_Speed>MAX_SPEED*0.9:
-		audio_manager.train_brakes(position)
+	if current_Speed>MAX_SPEED*0.75:
+		spark_part.emitting = true
 		small_tremble()
+		audio_manager.train_brakes(position)
 	if is_exploding==false:
 		check_for_out_of_track()
 		#physics
