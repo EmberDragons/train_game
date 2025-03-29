@@ -1,0 +1,206 @@
+[gd_scene load_steps=23 format=3 uid="uid://b41ljorf0y2b0"]
+
+[ext_resource type="Texture2D" uid="uid://3snigr6tieh0" path="res://assets/train/v1_wagon_big_2_.png" id="1_6spcm"]
+[ext_resource type="Script" path="res://code/wagon/wagon_script.gd" id="1_iavxr"]
+[ext_resource type="Texture2D" uid="uid://btixgwuxat4db" path="res://assets/train/v1_weel.png" id="2_ysvp7"]
+[ext_resource type="Script" path="res://code/train/weel_mvt.gd" id="3_x1fix"]
+[ext_resource type="Shader" path="res://shader/glass_wagon.gdshader" id="5_b2mur"]
+[ext_resource type="Texture2D" uid="uid://d0gd51d3utx1e" path="res://assets/train/v1_small_weel.png" id="5_vo15p"]
+[ext_resource type="Texture2D" uid="uid://d3wlbghjldetx" path="res://scene/train/vfx_train/glass.png" id="6_wmlec"]
+[ext_resource type="PackedScene" uid="uid://x5bs5fp36g7i" path="res://scene/train/vfx_train/grind.tscn" id="8_rnx3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fn2u"]
+size = Vector2(16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ipgw"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xat7"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0c7y"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmrl2"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt8my"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i70v"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxtrh"]
+atlas = ExtResource("1_6spcm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73mrg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ipgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xat7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0c7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmrl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt8my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i70v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxtrh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uu2pb"]
+frequency = 0.0022
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bvljy"]
+noise = SubResource("FastNoiseLite_uu2pb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sp7vb"]
+resource_local_to_scene = true
+shader = ExtResource("5_b2mur")
+shader_parameter/multiplyier = 15.0
+shader_parameter/dirstortionTexture = SubResource("NoiseTexture2D_bvljy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0u61"]
+size = Vector2(2, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6lus"]
+size = Vector2(22.5, 10)
+
+[node name="wagon" type="CharacterBody2D"]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_iavxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1fn2u")
+
+[node name="graphics" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("ArrWeels", "ArrShaders")]
+sprite_frames = SubResource("SpriteFrames_73mrg")
+autoplay = "default"
+offset = Vector2(0, -11)
+script = ExtResource("3_x1fix")
+ArrWeels = [NodePath("V1Weel4"), NodePath("V1Weel7"), NodePath("V1SmallWeel"), NodePath("V1SmallWeel3")]
+ArrShaders = [NodePath("SHADER"), NodePath("SHADER2"), NodePath("SHADER3"), NodePath("SHADER4"), NodePath("SHADER5"), NodePath("SHADER6"), NodePath("SHADER7"), NodePath("SHADER8"), NodePath("SHADER9"), NodePath("SHADER10")]
+
+[node name="V1Weel4" type="Sprite2D" parent="graphics"]
+position = Vector2(-19, 1.47942)
+scale = Vector2(0.591821, 0.58179)
+texture = ExtResource("2_ysvp7")
+
+[node name="V1Weel7" type="Sprite2D" parent="graphics"]
+position = Vector2(20, 1.47942)
+scale = Vector2(0.591821, 0.58179)
+texture = ExtResource("2_ysvp7")
+
+[node name="V1SmallWeel" type="Sprite2D" parent="graphics"]
+position = Vector2(-9, 2.48872)
+scale = Vector2(0.611111, 0.625)
+texture = ExtResource("5_vo15p")
+
+[node name="V1SmallWeel3" type="Sprite2D" parent="graphics"]
+position = Vector2(11, 2.48872)
+scale = Vector2(0.611111, 0.625)
+texture = ExtResource("5_vo15p")
+
+[node name="SHADER" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(-19, -11.5113)
+scale = Vector2(0.125, 0.156)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER2" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(-10, -11.5113)
+scale = Vector2(0.125, 0.156)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER3" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(-1.90735e-06, -11.5113)
+scale = Vector2(0.125, 0.156)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER4" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(10, -11.5113)
+scale = Vector2(0.125, 0.156)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER5" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(19, -11.5113)
+scale = Vector2(0.125, 0.156)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER6" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(-19, -15.4913)
+scale = Vector2(0.125, 0.03)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER7" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(-10, -15.4913)
+scale = Vector2(0.125, 0.03)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER8" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(0, -15.4913)
+scale = Vector2(0.125, 0.03)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER9" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(10, -15.4913)
+scale = Vector2(0.125, 0.03)
+texture = ExtResource("6_wmlec")
+
+[node name="SHADER10" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_sp7vb")
+position = Vector2(19, -15.4913)
+scale = Vector2(0.125, 0.03)
+texture = ExtResource("6_wmlec")
+
+[node name="track_detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="track_detection"]
+scale = Vector2(2.07, 1)
+shape = SubResource("RectangleShape2D_w0u61")
+
+[node name="collision" type="Area2D" parent="." groups=["wagon"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision" groups=["wagon"]]
+position = Vector2(-6.70552e-07, -6.25)
+shape = SubResource("RectangleShape2D_e6lus")
+
+[node name="rotate_point" type="Sprite2D" parent="."]
+
+[node name="grind" parent="rotate_point" instance=ExtResource("8_rnx3d")]
+position = Vector2(-22.5, 3.75)
+scale = Vector2(-1, 1)
+emitting = false
+
+[connection signal="area_entered" from="track_detection" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="collision" to="." method="_on_collision_area_entered"]

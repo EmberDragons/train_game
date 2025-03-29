@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcbb8fl15kdle"]
+
+[ext_resource type="Script" path="res://code/track/track.gd" id="1_0657h"]
+[ext_resource type="Texture2D" uid="uid://iet78v7f1vg7" path="res://assets/tracks/track_forward.png" id="2_w11mo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpf5s"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ksph"]
+size = Vector2(9, 10)
+
+[node name="horizontal_forward" type="StaticBody2D"]
+script = ExtResource("1_0657h")
+old_for_x = Array[String](["left", "right"])
+old_for_y = Array[String](["", ""])
+type = "horizontal_forward"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tpf5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w11mo")
+
+[node name="Area2D" type="Area2D" parent="." groups=["track"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7ksph")

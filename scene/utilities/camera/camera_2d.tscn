@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bogcjp77rerph"]
+
+[ext_resource type="Script" path="res://code/camera/camera_movement.gd" id="1_i4um8"]
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+script = ExtResource("1_i4um8")
+zoom_speed = 0.2
+MAX_ZOOM = 1.0
+MIN_ZOOM = 6.0

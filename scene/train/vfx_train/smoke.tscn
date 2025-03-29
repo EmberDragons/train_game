@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgr7y0qy8c317"]
+
+[ext_resource type="Texture2D" uid="uid://dbha3wb8qm7bv" path="res://assets/vfx_art/smoke_sprite_sheet.png" id="1_44itt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1jbyg"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_i20lx"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.266667, -3.95605), 0.0, 0.0, 0, 0, Vector2(0.697436, -19.7802), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_lkd0l"]
+_data = [Vector2(0.0051282, 0.505494), 0.0, -0.642857, 0, 0, Vector2(0.475836, 0.691424), -1.17512, -1.17512, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_rdgvu"]
+offsets = PackedFloat32Array(0.0179641, 0.551867, 1)
+colors = PackedColorArray(0.829706, 0.83759, 0.82708, 0.027451, 0.393086, 0.393086, 0.393085, 0.541176, 0.67069, 0.67069, 0.67069, 0)
+
+[sub_resource type="Curve" id="Curve_cnl0j"]
+_data = [Vector2(0, 0.131868), 0.0, 0.0, 0, 0, Vector2(0.728205, 0.978022), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_1jbyg")
+amount = 300
+speed_scale = 0.4
+lifetime_randomness = 0.1
+draw_order = 1
+texture = ExtResource("1_44itt")
+emission_shape = 1
+emission_sphere_radius = 2.5
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 150.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+angular_velocity_curve = SubResource("Curve_i20lx")
+scale_amount_min = 0.2
+scale_amount_curve = SubResource("Curve_lkd0l")
+color_ramp = SubResource("Gradient_rdgvu")
+anim_offset_max = 1.0
+anim_offset_curve = SubResource("Curve_cnl0j")

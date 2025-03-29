@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://coegcd6jksth"]
+
+[ext_resource type="Script" path="res://code/menu_vers/selector.gd" id="1_rqa5u"]
+[ext_resource type="Texture2D" uid="uid://b8cs7ftn4304v" path="res://assets/tracks/switch_tracks.png" id="1_tfwin"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i54iq"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c02f"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akefm"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ha18"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti43a"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m315"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi4ji"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tiw1"]
+atlas = ExtResource("1_tfwin")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sb8xo"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i54iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c02f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akefm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ha18")
+}],
+"loop": false,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti43a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m315")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi4ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tiw1")
+}],
+"loop": false,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Selector" type="Node2D"]
+script = ExtResource("1_rqa5u")
+
+[node name="control" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sb8xo")
+animation = &"right"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = 8.0
+offset_right = 11.0
+offset_bottom = 15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = -18.0
+offset_right = 10.0
+offset_bottom = -9.0
+scale = Vector2(2, 2.048)
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true

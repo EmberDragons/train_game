@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxwry5c5of6j2"]
+
+[ext_resource type="Texture2D" uid="uid://dk7gsxtnasa10" path="res://assets/train/uis/fire_sprite.png" id="1_v3yjo"]
+
+[sub_resource type="Curve" id="Curve_8gggp"]
+_data = [Vector2(0, 0.021978), 0.0, 0.0, 0, 0, Vector2(0.242291, 0.978022), 0.0, 0.0, 0, 0, Vector2(0.709251, 0.846154), 0.0, 0.0, 0, 0, Vector2(1, 0.637363), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_w4xqk"]
+offsets = PackedFloat32Array(0, 0.467337, 0.678392, 1)
+colors = PackedColorArray(0.903999, 0.609764, 0.609561, 1, 0.824295, 0.535189, 0.42604, 1, 0.76, 0.752147, 0.2888, 1, 0.6, 0.174, 0.1811, 0)
+
+[sub_resource type="Gradient" id="Gradient_g3452"]
+offsets = PackedFloat32Array(0, 0.18593, 0.351759, 0.507538, 1)
+colors = PackedColorArray(0.894922, 0.894922, 0.894922, 1, 0.809454, 0.725712, 0.349619, 1, 0.786144, 0.679564, 0.200899, 1, 0.739029, 0.259644, 0.190405, 1, 0.79, 0.682823, 0.2054, 0)
+
+[node name="fire" type="Area2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(1.8, 1)
+amount = 500
+lifetime = 0.7
+texture = ExtResource("1_v3yjo")
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, -200)
+initial_velocity_max = 0.5
+angular_velocity_min = 200.0
+angular_velocity_max = 400.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+angle_max = 100.0
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_8gggp")
+color = Color(0.96, 0.576, 0.6592, 0.498039)
+color_ramp = SubResource("Gradient_w4xqk")
+color_initial_ramp = SubResource("Gradient_g3452")

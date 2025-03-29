@@ -1,0 +1,1181 @@
+[gd_scene load_steps=69 format=4 uid="uid://8neuymfpokky"]
+
+[ext_resource type="Script" path="res://code/menu_vers/main_menu_controller.gd" id="1_n6bsp"]
+[ext_resource type="PackedScene" uid="uid://bcbb8fl15kdle" path="res://scene/tracks/horizontal_forward.tscn" id="2_27vcv"]
+[ext_resource type="PackedScene" uid="uid://cm25xdg1v2oiq" path="res://scene/tracks/left_up.tscn" id="3_tjsqg"]
+[ext_resource type="PackedScene" uid="uid://dkvpr4jnd14gq" path="res://scene/tracks/vertical_forward.tscn" id="4_686od"]
+[ext_resource type="PackedScene" uid="uid://bo2eyctv1qe4u" path="res://scene/tracks/left_down.tscn" id="6_vlc3r"]
+[ext_resource type="PackedScene" uid="uid://c3bv7q32q5pxn" path="res://scene/tracks/U_right.tscn" id="7_umla0"]
+[ext_resource type="PackedScene" uid="uid://dosrkut5pq7e8" path="res://scene/tracks/right_down.tscn" id="8_1eqm2"]
+[ext_resource type="PackedScene" uid="uid://0hnmg43ui6hu" path="res://scene/tracks/right_up.tscn" id="8_ading"]
+[ext_resource type="Texture2D" uid="uid://b2idqmqhfhuk4" path="res://assets/menu/quit_panel.png" id="8_rsyl8"]
+[ext_resource type="PackedScene" uid="uid://c064m3r75joo" path="res://scene/tracks/U_left.tscn" id="9_gn0pm"]
+[ext_resource type="Texture2D" uid="uid://cujn806bsg46o" path="res://assets/menu/play_panel.png" id="9_uerfu"]
+[ext_resource type="Texture2D" uid="uid://b5ehy7m487f1y" path="res://assets/menu/parameters_panel.png" id="10_wictn"]
+[ext_resource type="PackedScene" uid="uid://dmsklvfxioa7e" path="res://scene/train/train.tscn" id="11_7vvun"]
+[ext_resource type="Script" path="res://code/menu_vers/move.gd" id="12_c3r5b"]
+[ext_resource type="Texture2D" uid="uid://csayr0o4cf806" path="res://assets/train/uis/accelerator_base.png" id="12_opxyn"]
+[ext_resource type="FontFile" uid="uid://ffpiiku5url1" path="res://fonts/Home Sweet Home.otf" id="13_gqh6h"]
+[ext_resource type="Shader" path="res://shader/glass_blommy.gdshader" id="14_w64mv"]
+[ext_resource type="Texture2D" uid="uid://cpt7u5bdg2nn" path="res://assets/train/uis/broken_glass.png" id="15_78nr4"]
+[ext_resource type="Shader" path="res://shader/texture_shader.gdshader" id="16_3dv5m"]
+[ext_resource type="Texture2D" uid="uid://duet1nuy4q82m" path="res://assets/train/uis/glass_container.png" id="17_mlbhn"]
+[ext_resource type="Texture2D" uid="uid://b042c1k0bcofv" path="res://assets/train/uis/side_selector.png" id="18_12clo"]
+[ext_resource type="Texture2D" uid="uid://br3dhuknbkrei" path="res://assets/train/uis/selector_speed.png" id="19_cl5g5"]
+[ext_resource type="Script" path="res://code/menu_vers/param_cam_pos.gd" id="22_w0m8p"]
+[ext_resource type="Script" path="res://code/menu_vers/leave_start_game.gd" id="23_x15pq"]
+[ext_resource type="PackedScene" uid="uid://coegcd6jksth" path="res://scene/menu/selector.tscn" id="24_q2t3b"]
+[ext_resource type="Texture2D" uid="uid://6vcpljmkbtp2" path="res://assets/ui/phone.png" id="25_mu1bc"]
+[ext_resource type="Texture2D" uid="uid://ccd8talt4t0ej" path="res://assets/ui/computer.png" id="26_88i2d"]
+[ext_resource type="Texture2D" uid="uid://cd5drr1i1p3p4" path="res://assets/ui/no_music.png" id="26_xw3fp"]
+[ext_resource type="Texture2D" uid="uid://cpgubti3x1juh" path="res://assets/ui/music.png" id="27_ctsui"]
+[ext_resource type="PackedScene" uid="uid://oo58iad551lo" path="res://scene/menu/selector_slide.tscn" id="27_jt7ay"]
+[ext_resource type="Texture2D" uid="uid://w25hva4vqx78" path="res://assets/ui/no_sound.png" id="28_33mry"]
+[ext_resource type="Texture2D" uid="uid://dba1c4t6irw21" path="res://assets/ui/sound.png" id="29_0w8jg"]
+[ext_resource type="FontFile" uid="uid://ccbilha7u3gc1" path="res://fonts/Kids Club House.otf" id="30_5dphb"]
+[ext_resource type="Texture2D" uid="uid://4oeqqo68wikk" path="res://assets/menu/background.png" id="30_tyc1m"]
+[ext_resource type="PackedScene" uid="uid://bllyvqlwaqdp1" path="res://scene/effects/water_shader.tscn" id="31_sry0u"]
+[ext_resource type="Shader" path="res://shader/water.gdshader" id="32_82ofe"]
+[ext_resource type="Texture2D" uid="uid://bf3ewb13gqfrw" path="res://assets/tiles/art_grass/grass_flower_white.png" id="33_sk031"]
+[ext_resource type="Texture2D" uid="uid://bn88e8l11ihfv" path="res://assets/tiles/art_grass/atlas_map.png" id="35_jof8x"]
+[ext_resource type="Texture2D" uid="uid://c3hhjh3qjdhd3" path="res://fonts/main_name.PNG" id="39_o5kot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erqkb"]
+atlas = ExtResource("12_opxyn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t11jx"]
+atlas = ExtResource("12_opxyn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_008eh"]
+atlas = ExtResource("12_opxyn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhtkn"]
+atlas = ExtResource("12_opxyn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fs30a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erqkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t11jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_008eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhtkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_il7f3"]
+font = ExtResource("13_gqh6h")
+font_size = 19
+font_color = Color(1, 1, 0.59, 1)
+outline_size = 1
+outline_color = Color(0.980281, 0.924669, 0.424394, 1)
+shadow_size = 0
+shadow_color = Color(0.980392, 0.92549, 0.423529, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ngmrr"]
+noise_type = 3
+frequency = 0.0051
+offset = Vector3(548.39, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2whi7"]
+noise = SubResource("FastNoiseLite_ngmrr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q552l"]
+shader = ExtResource("14_w64mv")
+shader_parameter/NEW_TEXTURE = ExtResource("15_78nr4")
+shader_parameter/dirstortionTexture = SubResource("NoiseTexture2D_2whi7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hi8k"]
+shader = ExtResource("16_3dv5m")
+shader_parameter/TEXT = ExtResource("17_mlbhn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duq3s"]
+size = Vector2(20, 17.1875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp0rx"]
+size = Vector2(48, 44)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6f1ne"]
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5viqm"]
+resource_local_to_scene = true
+seamless = true
+seamless_blend_skirt = 0.321
+noise = SubResource("FastNoiseLite_6f1ne")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_obfgx"]
+noise_type = 4
+frequency = 0.0575
+offset = Vector3(0, 169.49, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fie1k"]
+seamless = true
+seamless_blend_skirt = 0.217
+noise = SubResource("FastNoiseLite_obfgx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrffh"]
+resource_local_to_scene = true
+shader = ExtResource("32_82ofe")
+shader_parameter/color_tint = Color(0.180392, 0.478431, 0.427451, 0.72549)
+shader_parameter/color_top = Color(0.796078, 0.796078, 0.796078, 0.737255)
+shader_parameter/top_strength = 0.2
+shader_parameter/intensity = 0.065
+shader_parameter/scale_distortion = Vector2(0.2, 0.45)
+shader_parameter/speed = 0.05
+shader_parameter/scale = Vector2(0.171875, 0.148438)
+shader_parameter/y_zoom = 2.99661
+shader_parameter/noise = SubResource("NoiseTexture2D_5viqm")
+shader_parameter/noise_top = SubResource("NoiseTexture2D_fie1k")
+
+[sub_resource type="LabelSettings" id="LabelSettings_quy6a"]
+font = ExtResource("30_5dphb")
+font_size = 43
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0.76, 0.76, 0.76, 0.67451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_om86y"]
+font = ExtResource("30_5dphb")
+font_size = 38
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 9
+shadow_color = Color(0.75, 0.75, 0.75, 0.541176)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pheic"]
+texture = ExtResource("35_jof8x")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+2:22/0 = 0
+5:22/0 = 0
+6:22/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_a0uct"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_pheic")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6q505"]
+texture = ExtResource("35_jof8x")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+2:22/0 = 0
+5:22/0 = 0
+6:22/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3wq2e"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_6q505")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4n8pg"]
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8nkyg"]
+resource_local_to_scene = true
+seamless = true
+seamless_blend_skirt = 0.321
+noise = SubResource("FastNoiseLite_4n8pg")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hvoey"]
+noise_type = 4
+frequency = 0.0575
+offset = Vector3(0, 169.49, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p174q"]
+seamless = true
+seamless_blend_skirt = 0.217
+noise = SubResource("FastNoiseLite_hvoey")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1h2c"]
+resource_local_to_scene = true
+shader = ExtResource("32_82ofe")
+shader_parameter/color_tint = Color(0.180392, 0.478431, 0.427451, 0.72549)
+shader_parameter/color_top = Color(0.796078, 0.796078, 0.796078, 0.737255)
+shader_parameter/top_strength = 0.2
+shader_parameter/intensity = 0.065
+shader_parameter/scale_distortion = Vector2(0.2, 0.45)
+shader_parameter/speed = 0.05
+shader_parameter/scale = Vector2(1.75, 0.140625)
+shader_parameter/y_zoom = 2.99661
+shader_parameter/noise = SubResource("NoiseTexture2D_8nkyg")
+shader_parameter/noise_top = SubResource("NoiseTexture2D_p174q")
+
+[sub_resource type="LabelSettings" id="LabelSettings_35v0t"]
+font = ExtResource("30_5dphb")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_n6bsp")
+
+[node name="track" type="Node" parent="."]
+
+[node name="horizontal_forward10" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-1, 73.25)
+
+[node name="horizontal_forward9" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-26, 73.25)
+
+[node name="horizontal_forward8" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-51, 73.25)
+
+[node name="horizontal_forward7" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-76, 73.25)
+
+[node name="horizontal_forward13" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(124, -76.75)
+
+[node name="left_down" parent="track" instance=ExtResource("6_vlc3r")]
+position = Vector2(149, -76.75)
+
+[node name="vertical_forward7" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(149, 23.25)
+
+[node name="horizontal_forward17" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(49, 73.25)
+
+[node name="horizontal_forward16" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(74, 73.25)
+
+[node name="horizontal_forward15" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(99, 73.25)
+
+[node name="horizontal_forward14" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(124, 73.25)
+
+[node name="left_up2" parent="track" instance=ExtResource("3_tjsqg")]
+position = Vector2(149, 73.25)
+
+[node name="vertical_forward4" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(149, -51.75)
+
+[node name="horizontal_forward18" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(74, -76.75)
+
+[node name="horizontal_forward2" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(49, -76.75)
+
+[node name="horizontal_forward12" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(99, -76.75)
+
+[node name="right_down2" parent="track" instance=ExtResource("8_1eqm2")]
+position = Vector2(-101, -76.75)
+
+[node name="vertical_forward10" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(-101, 23.25)
+
+[node name="vertical_forward9" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(-101, -51.75)
+
+[node name="horizontal_forward20" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-51, -76.75)
+
+[node name="horizontal_forward21" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-76, -76.75)
+
+[node name="horizontal_forward19" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-26, -76.75)
+
+[node name="horizontal_forward" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-1, -76.75)
+
+[node name="horizontal_forward3" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(24, 73.25)
+
+[node name="vertical_forward" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(-101, 48.25)
+
+[node name="vertical_forward2" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(-101, -1.74998)
+
+[node name="up_right_down2" parent="track" instance=ExtResource("7_umla0")]
+position = Vector2(149, -26.75)
+
+[node name="horizontal_forward4" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(24, -76.75)
+
+[node name="horizontal_forward5" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(174, -26.75)
+
+[node name="horizontal_forward6" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(174, 48.25)
+
+[node name="horizontal_forward22" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(199, 48.25)
+
+[node name="horizontal_forward23" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(199, -26.75)
+
+[node name="horizontal_forward25" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(274, -76.75)
+
+[node name="right_down" parent="track" instance=ExtResource("8_1eqm2")]
+position = Vector2(224, -76.75)
+
+[node name="left_up3" parent="track" instance=ExtResource("3_tjsqg")]
+position = Vector2(299, -1.74998)
+
+[node name="left_down2" parent="track" instance=ExtResource("6_vlc3r")]
+position = Vector2(299, -76.75)
+
+[node name="vertical_forward3" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(299, -51.75)
+
+[node name="horizontal_forward26" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(274, -1.74998)
+
+[node name="horizontal_forward27" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(249, -76.75)
+
+[node name="vertical_forward5" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(299, -26.75)
+
+[node name="horizontal_forward28" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(249, -1.74998)
+
+[node name="right_up" parent="track" instance=ExtResource("8_ading")]
+position = Vector2(224, -1.74998)
+
+[node name="vertical_forward6" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(224, -51.75)
+
+[node name="down_left_up" parent="track" instance=ExtResource("9_gn0pm")]
+position = Vector2(224, -26.75)
+
+[node name="vertical_forward11" parent="track" instance=ExtResource("4_686od")]
+position = Vector2(149, -1.74998)
+
+[node name="up_right_down" parent="track" instance=ExtResource("7_umla0")]
+position = Vector2(149, 48.25)
+
+[node name="down_left_up2" parent="track" instance=ExtResource("9_gn0pm")]
+position = Vector2(-101, -26.75)
+
+[node name="horizontal_forward11" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-126, -26.75)
+
+[node name="horizontal_forward24" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-151, -26.75)
+
+[node name="horizontal_forward29" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-176, -26.75)
+
+[node name="horizontal_forward30" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-201, -26.75)
+
+[node name="horizontal_forward31" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(-226, -26.75)
+
+[node name="right_up2" parent="track" instance=ExtResource("8_ading")]
+position = Vector2(-101, 73.25)
+
+[node name="horizontal_forward32" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(249, 48.25)
+
+[node name="horizontal_forward33" parent="track" instance=ExtResource("2_27vcv")]
+position = Vector2(224, 48.25)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.8, 2.8)
+
+[node name="QuitPanel" type="Sprite2D" parent="."]
+position = Vector2(-134.438, -55.5)
+scale = Vector2(0.580078, 0.601563)
+texture = ExtResource("8_rsyl8")
+flip_h = true
+
+[node name="play_panel" type="Sprite2D" parent="."]
+position = Vector2(183, 15.25)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_uerfu")
+
+[node name="SettingsPanel" type="Sprite2D" parent="."]
+position = Vector2(181, -58.75)
+scale = Vector2(0.28, 0.3)
+texture = ExtResource("10_wictn")
+
+[node name="ui" type="CanvasLayer" parent="."]
+follow_viewport_scale = 5.0
+
+[node name="right_down" type="Control" parent="ui"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -73.0
+offset_right = 71.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/right_down"]
+layout_mode = 2
+anchor_left = -1.775
+anchor_top = -2.479
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_left = 138.025
+offset_top = -0.0329895
+offset_right = 138.0
+offset_bottom = -0.0220032
+
+[node name="speed_control" type="Control" parent="ui/right_down/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ui/right_down/VBoxContainer/speed_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+position = Vector2(92.5313, 126.281)
+scale = Vector2(5.54785, 5.35254)
+sprite_frames = SubResource("SpriteFrames_fs30a")
+autoplay = "default"
+
+[node name="speed_text" type="Label" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117
+anchor_top = -0.102
+anchor_right = 0.827
+anchor_bottom = 0.02
+offset_left = -0.0490017
+offset_top = 0.0100021
+offset_right = 0.0809937
+offset_bottom = -0.1
+grow_horizontal = 2
+text = "100 KM/H"
+label_settings = SubResource("LabelSettings_il7f3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="glassShader" type="ColorRect" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+material = SubResource("ShaderMaterial_q552l")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.157
+anchor_top = -0.094
+anchor_right = 0.777
+anchor_bottom = 0.016
+offset_left = 2.071
+offset_top = 0.969999
+offset_right = -2.069
+offset_bottom = -2.08
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Container" type="ColorRect" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+material = SubResource("ShaderMaterial_4hi8k")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.157
+anchor_top = -0.098
+anchor_right = 0.777
+anchor_bottom = 0.012
+offset_left = 0.0709991
+offset_top = -0.00999832
+offset_right = -0.0690002
+offset_bottom = -0.0599999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="side_select" type="Sprite2D" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+position = Vector2(18, 123)
+scale = Vector2(5.01737, 4.62812)
+texture = ExtResource("18_12clo")
+offset = Vector2(15.095, 1.615)
+
+[node name="selector" type="Sprite2D" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+position = Vector2(115, 131)
+scale = Vector2(5.55752, 5.40719)
+texture = ExtResource("19_cl5g5")
+offset = Vector2(-3, 0)
+
+[node name="start_pos" type="Control" parent="ui/right_down/VBoxContainer/speed_control/Control/selector"]
+layout_mode = 3
+anchor_left = 0.344
+anchor_top = 0.488
+anchor_right = 0.344
+anchor_bottom = 0.488
+offset_left = -34.9714
+offset_top = -31.9718
+offset_right = 5.0286
+offset_bottom = 8.0282
+
+[node name="top" type="Control" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+layout_mode = 1
+anchor_left = 0.499
+anchor_top = 0.228
+anchor_right = 0.499
+anchor_bottom = 0.228
+offset_left = 0.063797
+offset_top = 0.040596
+offset_right = 40.064
+offset_bottom = 40.0406
+
+[node name="middle" type="Control" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+layout_mode = 1
+anchor_left = 0.584
+anchor_top = 0.514
+anchor_right = 0.584
+anchor_bottom = 0.514
+offset_left = -0.0480118
+offset_top = -0.0699921
+offset_right = 39.952
+offset_bottom = 39.93
+
+[node name="bottom" type="Control" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+layout_mode = 1
+anchor_left = 0.497
+anchor_top = 0.747
+anchor_right = 0.497
+anchor_bottom = 0.747
+offset_left = 0.0831985
+offset_top = -0.07901
+offset_right = 40.083
+offset_bottom = 39.921
+
+[node name="speed_controller" type="VSlider" parent="ui/right_down/VBoxContainer/speed_control/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.071
+anchor_top = 0.241
+anchor_right = 1.0
+anchor_bottom = 0.863
+offset_left = -0.0129995
+offset_top = -4.455
+offset_right = -195.0
+offset_bottom = -0.0650024
+scale = Vector2(20.8, 1)
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+
+[node name="trains" type="Node" parent="."]
+
+[node name="train_main" parent="trains" groups=["train"] instance=ExtResource("11_7vvun")]
+position = Vector2(8, 73.25)
+script = ExtResource("12_c3r5b")
+
+[node name="Area2D" type="Area2D" parent="trains/train_main" groups=["train"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="trains/train_main/Area2D" groups=["train"]]
+position = Vector2(0, -1.40626)
+shape = SubResource("RectangleShape2D_duq3s")
+
+[node name="param_cam_pos" type="Node2D" parent="."]
+position = Vector2(283, -41)
+script = ExtResource("22_w0m8p")
+
+[node name="Area2D" type="Area2D" parent="param_cam_pos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="param_cam_pos/Area2D"]
+position = Vector2(-93, 12)
+shape = SubResource("RectangleShape2D_vp0rx")
+
+[node name="leave_start_game" type="Node2D" parent="."]
+script = ExtResource("23_x15pq")
+
+[node name="leave" type="Area2D" parent="leave_start_game"]
+position = Vector2(-261, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leave_start_game/leave"]
+shape = SubResource("RectangleShape2D_vp0rx")
+
+[node name="start" type="Area2D" parent="leave_start_game"]
+position = Vector2(280, 47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leave_start_game/start"]
+shape = SubResource("RectangleShape2D_vp0rx")
+
+[node name="params" type="Node2D" parent="."]
+
+[node name="Selector" parent="params" instance=ExtResource("24_q2t3b")]
+position = Vector2(342, -48)
+param = "music"
+
+[node name="Sprite2D" type="Sprite2D" parent="params/Selector"]
+position = Vector2(-18, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("26_xw3fp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="params/Selector"]
+position = Vector2(18, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("27_ctsui")
+
+[node name="Selector3" parent="params" instance=ExtResource("24_q2t3b")]
+position = Vector2(342, -70)
+param = "optimisation"
+
+[node name="Sprite2D" type="Sprite2D" parent="params/Selector3"]
+position = Vector2(-18, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("25_mu1bc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="params/Selector3"]
+position = Vector2(18, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("26_88i2d")
+
+[node name="Selector_slide" parent="params" instance=ExtResource("27_jt7ay")]
+position = Vector2(342, -28)
+bus_name = "Master"
+
+[node name="Sprite2D" type="Sprite2D" parent="params/Selector_slide"]
+position = Vector2(-18, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("28_33mry")
+
+[node name="Sprite2D2" type="Sprite2D" parent="params/Selector_slide"]
+position = Vector2(18, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("29_0w8jg")
+
+[node name="Selector2" parent="params" instance=ExtResource("24_q2t3b")]
+position = Vector2(342, -7)
+param = "shader"
+
+[node name="ColorRect" type="ColorRect" parent="params/Selector2"]
+offset_left = -24.0
+offset_top = -6.0
+offset_right = -11.0
+offset_bottom = 7.0
+color = Color(0, 0.705882, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="params/Selector2"]
+offset_left = 12.0
+offset_top = -6.0
+offset_right = 25.0
+offset_bottom = 7.0
+color = Color(0, 0.705882, 1, 1)
+
+[node name="water_shader" parent="params/Selector2" instance=ExtResource("31_sry0u")]
+material = SubResource("ShaderMaterial_rrffh")
+position = Vector2(20, 0.5)
+scale = Vector2(0.171875, 0.148438)
+
+[node name="GrassFlowerWhite" type="Sprite2D" parent="params/Selector2"]
+z_index = -1
+position = Vector2(18.5, 0.5)
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("33_sk031")
+
+[node name="GrassFlowerWhite2" type="Sprite2D" parent="params/Selector2"]
+z_index = -1
+position = Vector2(-17.5, 0.5)
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("33_sk031")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(25.5, -5)
+scale = Vector2(3.73438, 2.84375)
+texture = ExtResource("30_tyc1m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -67.0
+offset_top = -55.0
+offset_right = 252.0
+offset_bottom = 75.0
+scale = Vector2(0.640001, 0.64)
+text = "你喜欢
+            火车吗？"
+label_settings = SubResource("LabelSettings_quy6a")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 27.0
+offset_right = 450.0
+offset_bottom = 79.0
+scale = Vector2(0.199998, 0.24)
+text = "do you like trains?"
+label_settings = SubResource("LabelSettings_om86y")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -14
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAD+/wEAAQAAAAEAAAAAAAEAAQABAAEAAAD+/wAAAQAAAAAAAAD//wAAAQABAAEAAAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAACAAAAAQABAAEAAAACAP//AQABAAEAAAABAP//AQABAAEAAAABAP7/AQAAAAQAAAAAAP7/AQABAAAAAAD///7/AQABAAAAAAD+//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAAAAP//AQAAAAEAAAD/////AQABAAEAAAD+////AQABAAEAAAD9//7/AQAAAAAAAAACAP7/AQADAAMAAAADAP7/AQADAAMAAAADAP//AQABAAEAAAACAAEAAQABAAEAAAABAAEAAQABAAEAAAADAAAAAQABAAEAAAADAAEAAQABAAEAAAD9/wEAAQABAAEAAAD8/wEAAQAAAAEAAAD8/wAAAQAAAAEAAAD8////AQABAAEAAAD8//7/AQABAAEAAAAEAAEAAQAAAAEAAAAEAAAAAQAAAAEAAAAEAP//AQABAAEAAAAEAP7/AQADAAMAAAAFAP7/AQABAAQAAAAGAP7/AQABAAEAAAAGAP//AQABAAEAAAAFAP//AQABAAEAAAAFAAAAAQAAAAEAAAAFAAEAAQABAAEAAAAFAAIAAQABAAEAAAAGAAEAAQABAAEAAAAGAAAAAQAAAAEAAAAEAAIAAQAAAAEAAAADAAIAAQAAAAEAAAACAAIAAQAAAAEAAAABAAIAAQAAAAEAAAAAAAIAAQABAAEAAAD//wIAAQABAAEAAAD+/wIAAQAAAAAAAAD9/wIAAQAAAAAAAAD8/wIAAQABAAEAAAD7/wIAAQAAAAEAAAD7/wEAAQAAAAEAAAD7/wAAAQABAAEAAAD7////AQABAAEAAAD8//3/AQABAAEAAAD7//3/AQABAAEAAAD7//7/AQABAAEAAAD9//3/AQABAAEAAAD+//3/AQAAAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAEAAAABAP3/AQAAAAMAAAACAP3/AQAAAAIAAAADAP3/AQAAAAIAAAAEAP3/AQAAAAIAAAAFAP3/AQABAAMAAAAGAP3/AQABAAEAAAAGAPz/AQABAAEAAAAFAPz/AQACAAQAAAAEAPz/AQACAAMAAAADAPz/AQACAAMAAAACAPz/AQACAAMAAAABAPz/AQADAAQAAAAAAPz/AQABAAEAAAD///z/AQABAAEAAAD+//z/AQABAAEAAAD9//z/AQABAAEAAAD8//z/AQABAAEAAAD7//z/AQABAAEAAAACAAMAAQAAAAEAAAA=")
+tile_set = SubResource("TileSet_a0uct")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+z_index = -14
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAUAAAADAAEAAAAAAAUAAAACAP7/AAABAAUAAAAEAP3/AAAAAAEAAAADAP3/AAAAAAEAAAACAP3/AAAAAAEAAAAFAP3/AAABAAAAAAAEAPz/AAABAAAAAAADAPz/AAABAAAAAAACAPz/AAABAAAAAAABAP3/AAABAAAAAAABAPz/AAABAAAAAAAFAPz/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_3wq2e")
+
+[node name="shaders" type="Node2D" parent="."]
+
+[node name="water_shader" parent="shaders" instance=ExtResource("31_sry0u")]
+material = SubResource("ShaderMaterial_c1h2c")
+position = Vector2(223, -127)
+scale = Vector2(1.75, 0.140625)
+
+[node name="me" type="Label" parent="."]
+offset_left = 165.0
+offset_top = 92.0
+offset_right = 205.0
+offset_bottom = 115.0
+scale = Vector2(0.440001, 0.48)
+text = "EasyDoor
+ZapSplat"
+label_settings = SubResource("LabelSettings_35v0t")
+
+[node name="MainName" type="Sprite2D" parent="."]
+position = Vector2(25, -15)
+scale = Vector2(0.356322, 0.331797)
+texture = ExtResource("39_o5kot")
+
+[connection signal="area_entered" from="param_cam_pos/Area2D" to="param_cam_pos" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="leave_start_game/leave" to="leave_start_game" method="_on_leave_area_entered"]
+[connection signal="area_entered" from="leave_start_game/start" to="leave_start_game" method="_on_start_area_entered"]

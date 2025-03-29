@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmoe3w80dh11e"]
+
+[ext_resource type="AudioStream" uid="uid://xwnq5kk8j3li" path="res://audio/place_track.mp3" id="1_k7gw7"]
+
+[node name="PLACE_TRACK" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_k7gw7")
+bus = &"SFX"

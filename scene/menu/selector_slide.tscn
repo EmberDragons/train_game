@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://oo58iad551lo"]
+
+[ext_resource type="Script" path="res://code/menu_vers/selector_slide.gd" id="1_fii8g"]
+[ext_resource type="Texture2D" uid="uid://cmnwyoiviw0ti" path="res://assets/menu/switch_blue.png" id="2_d8bhe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxhql"]
+atlas = ExtResource("2_d8bhe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayla5"]
+atlas = ExtResource("2_d8bhe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgddq"]
+atlas = ExtResource("2_d8bhe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6ch3"]
+atlas = ExtResource("2_d8bhe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2756r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxhql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayla5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgddq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6ch3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Selector_slide" type="Node2D"]
+script = ExtResource("1_fii8g")
+
+[node name="control" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2756r")
+frame = 3
+frame_progress = 0.993187
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = 8.0
+offset_right = 11.0
+offset_bottom = 15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider" type="HSlider" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 1.0
+focus_mode = 0

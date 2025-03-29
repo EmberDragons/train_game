@@ -1,0 +1,202 @@
+[gd_scene load_steps=20 format=3 uid="uid://dmsklvfxioa7e"]
+
+[ext_resource type="Script" path="res://code/train/train_script.gd" id="1_5etym"]
+[ext_resource type="Texture2D" uid="uid://mb8w5bb2e6k6" path="res://assets/train/v1_locomotiv-sheet.png" id="1_f1rbk"]
+[ext_resource type="Texture2D" uid="uid://btixgwuxat4db" path="res://assets/train/v1_weel.png" id="3_umqqo"]
+[ext_resource type="Texture2D" uid="uid://dbha3wb8qm7bv" path="res://assets/smoke/smoke_sprite_sheet.png" id="4_vbvn1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uub8"]
+size = Vector2(50, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5ivk"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ahb"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftpnl"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx523"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jggij"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_051pb"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht5ej"]
+atlas = ExtResource("1_f1rbk")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bfuok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5ivk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ahb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftpnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx523")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jggij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_051pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht5ej")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p8j00"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_d1nkc"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.266667, -3.95605), 0.0, 0.0, 0, 0, Vector2(0.697436, -19.7802), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_8nx3k"]
+_data = [Vector2(0.0051282, 0.505494), 0.0, -0.642857, 0, 0, Vector2(0.48718, 0.659341), -1.17512, -1.17512, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ax7yo"]
+offsets = PackedFloat32Array(0.0179641, 0.57485, 1)
+colors = PackedColorArray(0.713726, 0.72549, 0.709804, 0.027451, 0.321569, 0.321569, 0.321569, 0.541176, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_d7cpv"]
+_data = [Vector2(0, 0.131868), 0.0, 0.0, 0, 0, Vector2(0.728205, 0.978022), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp0j1"]
+size = Vector2(22, 13)
+
+[node name="train_main" type="CharacterBody2D"]
+script = ExtResource("1_5etym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -3)
+shape = SubResource("RectangleShape2D_7uub8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bfuok")
+autoplay = "default"
+frame_progress = 0.554864
+
+[node name="V1Weel3" type="Sprite2D" parent="."]
+position = Vector2(-7, 5)
+scale = Vector2(0.516975, 0.496913)
+texture = ExtResource("3_umqqo")
+
+[node name="V1Weel2" type="Sprite2D" parent="."]
+position = Vector2(-14, 5)
+scale = Vector2(0.444444, 0.444444)
+texture = ExtResource("3_umqqo")
+
+[node name="V1Weel" type="Sprite2D" parent="."]
+position = Vector2(11, 4)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("3_umqqo")
+
+[node name="smoke" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_p8j00")
+position = Vector2(-15, -18)
+amount = 300
+speed_scale = 0.4
+lifetime_randomness = 0.1
+draw_order = 1
+texture = ExtResource("4_vbvn1")
+emission_shape = 1
+emission_sphere_radius = 2.5
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 150.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+angular_velocity_curve = SubResource("Curve_d1nkc")
+scale_amount_min = 0.2
+scale_amount_curve = SubResource("Curve_8nx3k")
+color_ramp = SubResource("Gradient_ax7yo")
+anim_offset_max = 1.0
+anim_offset_curve = SubResource("Curve_d7cpv")
+
+[node name="smoke" type="CPUParticles2D" parent="smoke"]
+material = SubResource("CanvasItemMaterial_p8j00")
+position = Vector2(21, 3)
+amount = 500
+speed_scale = 0.4
+lifetime_randomness = 0.1
+draw_order = 1
+texture = ExtResource("4_vbvn1")
+emission_shape = 1
+emission_sphere_radius = 2.5
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 150.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+angular_velocity_curve = SubResource("Curve_d1nkc")
+scale_amount_min = 0.2
+scale_amount_curve = SubResource("Curve_8nx3k")
+color = Color(0.71213, 0.712129, 0.712129, 1)
+color_ramp = SubResource("Gradient_ax7yo")
+anim_offset_max = 1.0
+anim_offset_curve = SubResource("Curve_d7cpv")
+
+[node name="smoke" type="CPUParticles2D" parent="smoke/smoke"]
+material = SubResource("CanvasItemMaterial_p8j00")
+position = Vector2(-22, -3)
+amount = 700
+speed_scale = 0.4
+lifetime_randomness = 0.1
+draw_order = 1
+texture = ExtResource("4_vbvn1")
+emission_shape = 1
+emission_sphere_radius = 2.5
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 150.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+angular_velocity_curve = SubResource("Curve_d1nkc")
+scale_amount_min = 0.2
+scale_amount_curve = SubResource("Curve_8nx3k")
+color = Color(0.601223, 0.601223, 0.601223, 1)
+color_ramp = SubResource("Gradient_ax7yo")
+anim_offset_max = 1.0
+anim_offset_curve = SubResource("Curve_d7cpv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, -1.5)
+shape = SubResource("RectangleShape2D_qp0j1")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_track_found"]

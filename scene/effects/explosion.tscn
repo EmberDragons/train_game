@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds0h6cdvjwfmm"]
+
+[ext_resource type="Texture2D" uid="uid://dqljy76tu60op" path="res://assets/vfx_art/smoke_1.png" id="1_4vl14"]
+[ext_resource type="Script" path="res://code/destroy_timer.gd" id="1_jt1th"]
+
+[sub_resource type="Curve" id="Curve_2fq0b"]
+_data = [Vector2(0, 0.542113), 0.0, 7.69822, 0, 0, Vector2(0.144981, 0.980092), 0.0, 0.0, 0, 0, Vector2(0.408922, 0.422665), -2.67764, -2.67764, 0, 0, Vector2(0.490706, 0.273354), -0.966927, -0.966927, 0, 0, Vector2(0.996282, 0.0742725), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_r4its"]
+offsets = PackedFloat32Array(0, 0.394191, 0.738589, 1)
+colors = PackedColorArray(0.888454, 0.390208, 0.418897, 1, 0.807999, 0.405121, 0.142739, 1, 0.969828, 0.747078, 0.129258, 1, 1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_xenur"]
+_data = [Vector2(0, 0.343032), 0.0, 0.0, 0, 0, Vector2(0.223048, 0.910413), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="explosion" type="CPUParticles2D"]
+emitting = false
+amount = 200
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.85
+randomness = 0.6
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 350.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_2fq0b")
+color = Color(1, 0.629167, 0.11, 1)
+color_ramp = SubResource("Gradient_r4its")
+script = ExtResource("1_jt1th")
+time = 1.5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 200
+lifetime = 0.4
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.9
+randomness = 0.8
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 240.0
+initial_velocity_max = 340.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_xenur")
+color = Color(0.77, 0.57519, 0.2387, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CPUParticles2D"]
+emitting = false
+amount = 25
+lifetime = 0.4
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.85
+randomness = 0.8
+texture = ExtResource("1_4vl14")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 400.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_xenur")
+color = Color(0.75, 0.713125, 0.7125, 1)

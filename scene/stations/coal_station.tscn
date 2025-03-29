@@ -1,0 +1,196 @@
+[gd_scene load_steps=17 format=3 uid="uid://kxsivfimqmbl"]
+
+[ext_resource type="Texture2D" uid="uid://dpp0qu5oda58f" path="res://assets/stations/station_grey.png" id="1_2b4q0"]
+[ext_resource type="Texture2D" uid="uid://dk7gsxtnasa10" path="res://assets/train/uis/fire_sprite.png" id="2_41aa7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20tmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuc6o"]
+size = Vector2(52, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m8pdl"]
+radius = 30.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoi6s"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_170jv"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vjav"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83pol"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyqwc"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl6as"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu4nl"]
+atlas = ExtResource("1_2b4q0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63dwv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoi6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_170jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vjav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83pol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyqwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl6as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu4nl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_fbi88"]
+_data = [Vector2(0, 0.021978), 0.0, 0.0, 0, 0, Vector2(0.251101, 0.615385), 0.0, 0.0, 0, 0, Vector2(0.731277, 0.362637), 0.0, 0.0, 0, 0, Vector2(0.995595, 0.142857), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_yxp3j"]
+offsets = PackedFloat32Array(0, 0.341709, 0.60804, 0.748744, 1)
+colors = PackedColorArray(0.818393, 0.468183, 0.166042, 1, 0.88, 0.362853, 0.1232, 1, 0.83, 0.821423, 0.3154, 0.803922, 0.92, 0.46, 0.23, 0.717647, 0.6, 0.174, 0.1811, 0)
+
+[sub_resource type="Gradient" id="Gradient_jhltw"]
+offsets = PackedFloat32Array(0, 0.296482, 0.407035, 0.688442, 1)
+colors = PackedColorArray(0.84043, 0.365781, 0.104945, 1, 0.831803, 0.244469, 0.0730621, 1, 0.83, 0.21912, 0.0664, 1, 1, 0.853568, 0.853568, 1, 1, 1, 1, 0.00392157)
+
+[node name="c_station" type="StaticBody2D"]
+z_index = 1
+
+[node name="empty" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_20tmg")
+
+[node name="collision" type="Area2D" parent="." groups=["station_collision"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision" groups=["station_collision"]]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_kuc6o")
+
+[node name="Area2D" type="Area2D" parent="." groups=["coal_station"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m8pdl")
+
+[node name="graphics" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.88, 0.839)
+sprite_frames = SubResource("SpriteFrames_63dwv")
+autoplay = "default"
+
+[node name="fire" type="CPUParticles2D" parent="."]
+position = Vector2(-20, 1)
+scale = Vector2(1.8, 1)
+amount = 100
+texture = ExtResource("2_41aa7")
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, -20)
+initial_velocity_max = 0.5
+angular_velocity_min = 100.0
+angular_velocity_max = 200.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+angle_max = 100.0
+scale_amount_min = 0.05
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_fbi88")
+color = Color(0.96, 0.576, 0.6592, 0.498039)
+color_ramp = SubResource("Gradient_yxp3j")
+color_initial_ramp = SubResource("Gradient_jhltw")
+
+[node name="fire2" type="CPUParticles2D" parent="."]
+position = Vector2(-10, 1)
+scale = Vector2(1.8, 1)
+amount = 100
+texture = ExtResource("2_41aa7")
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, -20)
+initial_velocity_max = 0.5
+angular_velocity_min = 100.0
+angular_velocity_max = 200.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+angle_max = 100.0
+scale_amount_min = 0.05
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_fbi88")
+color = Color(0.96, 0.576, 0.6592, 0.498039)
+color_ramp = SubResource("Gradient_yxp3j")
+color_initial_ramp = SubResource("Gradient_jhltw")
+
+[node name="fire3" type="CPUParticles2D" parent="."]
+position = Vector2(9, 1)
+scale = Vector2(1.8, 1)
+amount = 100
+texture = ExtResource("2_41aa7")
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, -20)
+initial_velocity_max = 0.5
+angular_velocity_min = 100.0
+angular_velocity_max = 200.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+angle_max = 100.0
+scale_amount_min = 0.05
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_fbi88")
+color = Color(0.96, 0.576, 0.6592, 0.498039)
+color_ramp = SubResource("Gradient_yxp3j")
+color_initial_ramp = SubResource("Gradient_jhltw")
+
+[node name="fire4" type="CPUParticles2D" parent="."]
+position = Vector2(20, 1)
+scale = Vector2(1.8, 1)
+amount = 100
+texture = ExtResource("2_41aa7")
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, -20)
+initial_velocity_max = 0.5
+angular_velocity_min = 100.0
+angular_velocity_max = 200.0
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+angle_max = 100.0
+scale_amount_min = 0.05
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_fbi88")
+color = Color(0.96, 0.576, 0.6592, 0.498039)
+color_ramp = SubResource("Gradient_yxp3j")
+color_initial_ramp = SubResource("Gradient_jhltw")

@@ -1,0 +1,227 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdmx3lyholnfv"]
+
+[ext_resource type="PackedScene" uid="uid://dmsklvfxioa7e" path="res://scene/train/train.tscn" id="6_x8rti"]
+[ext_resource type="PackedScene" uid="uid://djrc347tqqu2m" path="res://scene/train/wagon_coal.tscn" id="7_5ojhy"]
+[ext_resource type="FontFile" uid="uid://dtxvt3xiy0jfc" path="res://fonts/Bitmgothic.otf" id="7_kv3i8"]
+[ext_resource type="PackedScene" uid="uid://dx6nfdppe8xsw" path="res://scene/train/wagon_hay.tscn" id="8_3lvsk"]
+[ext_resource type="PackedScene" uid="uid://bcbb8fl15kdle" path="res://forward_track.tscn" id="8_mjnea"]
+[ext_resource type="PackedScene" uid="uid://dosrkut5pq7e8" path="res://right_track.tscn" id="9_h17vv"]
+[ext_resource type="PackedScene" uid="uid://cka2ryxmb6kwn" path="res://scene/train/wagon_people.tscn" id="9_vcn1v"]
+[ext_resource type="PackedScene" uid="uid://bo2eyctv1qe4u" path="res://left.tscn" id="10_4kga6"]
+[ext_resource type="PackedScene" uid="uid://baym8mxlmrvuj" path="res://scene/train/wagon_wood.tscn" id="10_fyacd"]
+[ext_resource type="PackedScene" uid="uid://bogcjp77rerph" path="res://scene/utilities/camera/camera_2d.tscn" id="11_k21lf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq5hi"]
+font = ExtResource("7_kv3i8")
+font_size = 100
+
+[node name="Game" type="Node2D"]
+
+[node name="track" type="Node" parent="."]
+
+[node name="StaticBody2D3" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -26)
+rotation = 1.5708
+
+[node name="StaticBody2D4" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -50)
+rotation = 1.5708
+
+[node name="StaticBody2D5" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -74)
+rotation = 1.5708
+
+[node name="StaticBody2D6" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -98)
+rotation = 1.5708
+
+[node name="StaticBody2D7" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -123)
+rotation = 1.5708
+
+[node name="StaticBody2D8" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -147)
+rotation = 1.5708
+
+[node name="StaticBody2D10" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(210, -123)
+rotation = 1.5708
+
+[node name="StaticBody2D11" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(210, -147)
+rotation = 1.5708
+
+[node name="StaticBody2D12" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(211, -98)
+rotation = -1.57079
+
+[node name="StaticBody2D13" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(211, -74)
+rotation = -1.5708
+
+[node name="StaticBody2D14" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(211, -50)
+rotation = -1.57079
+
+[node name="StaticBody2D15" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(211, -26)
+rotation = -1.5708
+
+[node name="StaticBody2D16" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(211, -1)
+rotation = -1.57079
+
+[node name="StaticBody2D17" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(211, 23)
+rotation = -1.5708
+
+[node name="StaticBody2D18" parent="track" instance=ExtResource("9_h17vv")]
+z_index = -1
+position = Vector2(211, 48)
+
+[node name="StaticBody2D19" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(186, 48)
+
+[node name="StaticBody2D20" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(161, 48)
+
+[node name="StaticBody2D21" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(136, 48)
+
+[node name="StaticBody2D22" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(111, 48)
+
+[node name="StaticBody2D23" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(86, 48)
+
+[node name="StaticBody2D24" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(62, 48)
+
+[node name="StaticBody2D25" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(37, 48)
+
+[node name="StaticBody2D26" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(12, 48)
+
+[node name="StaticBody2D27" parent="track" instance=ExtResource("9_h17vv")]
+z_index = -1
+position = Vector2(-13, 48)
+rotation = 1.5708
+
+[node name="StaticBody2D28" parent="track" instance=ExtResource("9_h17vv")]
+z_index = -1
+position = Vector2(-13, -172)
+
+[node name="StaticBody2D29" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(12, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D30" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(37, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D31" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(62, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D32" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(87, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D33" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(112, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D34" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(136, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D35" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(161, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D36" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(186, -172)
+rotation = -3.14159
+
+[node name="StaticBody2D9" parent="track" instance=ExtResource("10_4kga6")]
+z_index = -1
+z_as_relative = false
+position = Vector2(211, -172)
+
+[node name="StaticBody2D" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, 23)
+rotation = 1.5708
+
+[node name="StaticBody2D2" parent="track" instance=ExtResource("8_mjnea")]
+z_index = -1
+position = Vector2(-13, -1)
+rotation = 1.5708
+
+[node name="Camera2D" parent="." instance=ExtResource("11_k21lf")]
+position = Vector2(-42, 0)
+scale = Vector2(2.19669, 1.57275)
+zoom = Vector2(1, 1)
+
+[node name="train_main" parent="." instance=ExtResource("6_x8rti")]
+position = Vector2(33, 41)
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="speed" type="Label" parent="ui"]
+offset_left = 968.0
+offset_top = 459.0
+offset_right = 1131.0
+offset_bottom = 559.0
+text = "100"
+label_settings = SubResource("LabelSettings_iq5hi")
+metadata/_edit_use_anchors_ = true
+
+[node name="wagons" type="Node2D" parent="."]
+position = Vector2(31, 40)
+
+[node name="wagon" parent="wagons" instance=ExtResource("7_5ojhy")]
+position = Vector2(59, -5)
+
+[node name="wagon2" parent="wagons" instance=ExtResource("8_3lvsk")]
+position = Vector2(116, -3)
+
+[node name="wagon3" parent="wagons" instance=ExtResource("9_vcn1v")]
+position = Vector2(174, -3)
+
+[node name="wagon4" parent="wagons" instance=ExtResource("9_vcn1v")]
+position = Vector2(231, -3)
+
+[node name="wagon5" parent="wagons" instance=ExtResource("10_fyacd")]
+position = Vector2(288, -3)

@@ -1,0 +1,168 @@
+[gd_scene load_steps=26 format=3 uid="uid://bdhxov75yasic"]
+
+[ext_resource type="Script" path="res://code/wagon/wagon_script.gd" id="1_3q6p6"]
+[ext_resource type="Texture2D" uid="uid://cep5qmtkc3aem" path="res://assets/train/v1_wagon_coal_small.png" id="1_l8725"]
+[ext_resource type="Texture2D" uid="uid://btixgwuxat4db" path="res://assets/train/v1_weel.png" id="2_chqip"]
+[ext_resource type="Texture2D" uid="uid://d0gd51d3utx1e" path="res://assets/train/v1_small_weel.png" id="3_d0qqc"]
+[ext_resource type="Script" path="res://code/train/weel_mvt.gd" id="3_u3h2b"]
+[ext_resource type="Shader" path="res://shader/glass_wagon.gdshader" id="6_4y67k"]
+[ext_resource type="Texture2D" uid="uid://d3wlbghjldetx" path="res://scene/train/vfx_train/glass.png" id="7_wp04p"]
+[ext_resource type="PackedScene" uid="uid://x5bs5fp36g7i" path="res://scene/train/vfx_train/grind.tscn" id="8_u1p3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu050"]
+size = Vector2(16.0068, 11.991)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwvnq"]
+atlas = ExtResource("1_l8725")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpemg"]
+atlas = ExtResource("1_l8725")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l445q"]
+atlas = ExtResource("1_l8725")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwpga"]
+atlas = ExtResource("1_l8725")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmhly"]
+atlas = ExtResource("1_l8725")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r23r"]
+atlas = ExtResource("1_l8725")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g7jw"]
+atlas = ExtResource("1_l8725")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_27lsn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwvnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpemg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l445q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwpga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmhly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r23r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g7jw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bd6ok"]
+frequency = 0.0022
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5k0m7"]
+noise = SubResource("FastNoiseLite_bd6ok")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15pcd"]
+resource_local_to_scene = true
+shader = ExtResource("6_4y67k")
+shader_parameter/multiplyier = 25.0
+shader_parameter/dirstortionTexture = SubResource("NoiseTexture2D_5k0m7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u52mv"]
+frequency = 0.0022
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8vn40"]
+noise = SubResource("FastNoiseLite_u52mv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ub85"]
+shader = ExtResource("6_4y67k")
+shader_parameter/multiplyier = null
+shader_parameter/dirstortionTexture = SubResource("NoiseTexture2D_8vn40")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ltt"]
+size = Vector2(1.81818, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx50b"]
+size = Vector2(32.5, 16.25)
+
+[node name="wagon" type="CharacterBody2D"]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_3q6p6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.000563281
+shape = SubResource("RectangleShape2D_vu050")
+
+[node name="graphics" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("ArrWeels", "ArrShaders")]
+sprite_frames = SubResource("SpriteFrames_27lsn")
+autoplay = "default"
+frame = 3
+frame_progress = 0.178056
+offset = Vector2(0, -12)
+script = ExtResource("3_u3h2b")
+ArrWeels = [NodePath("V1Weel4"), NodePath("V1SmallWeel"), NodePath("V1SmallWeel2")]
+ArrShaders = [NodePath("SHADER"), NodePath("SHADER2")]
+
+[node name="V1Weel4" type="Sprite2D" parent="graphics"]
+position = Vector2(-19.408, 0.374741)
+scale = Vector2(0.765333, 0.730917)
+texture = ExtResource("2_chqip")
+
+[node name="V1SmallWeel" type="Sprite2D" parent="graphics"]
+position = Vector2(20, 0.989239)
+scale = Vector2(0.722222, 0.75)
+texture = ExtResource("3_d0qqc")
+
+[node name="V1SmallWeel2" type="Sprite2D" parent="graphics"]
+position = Vector2(-10, 1.98924)
+scale = Vector2(0.583333, 0.625)
+texture = ExtResource("3_d0qqc")
+
+[node name="SHADER" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_15pcd")
+position = Vector2(-14.5, -12.5108)
+scale = Vector2(0.405, 0.155)
+texture = ExtResource("7_wp04p")
+
+[node name="SHADER2" type="Sprite2D" parent="graphics"]
+material = SubResource("ShaderMaterial_4ub85")
+position = Vector2(-14.5, -16.5108)
+scale = Vector2(0.405, 0.03)
+texture = ExtResource("7_wp04p")
+
+[node name="track_detection" type="Area2D" parent="."]
+scale = Vector2(1.1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="track_detection"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_d4ltt")
+
+[node name="collision" type="Area2D" parent="." groups=["wagon"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision" groups=["wagon"]]
+position = Vector2(1.19209e-06, -9.375)
+shape = SubResource("RectangleShape2D_kx50b")
+
+[node name="rotate_point" type="Sprite2D" parent="."]
+
+[node name="grind" parent="rotate_point" instance=ExtResource("8_u1p3o")]
+position = Vector2(-22.5, 3.75)
+scale = Vector2(-1, 1)
+emitting = false
+
+[connection signal="area_entered" from="track_detection" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="collision" to="." method="_on_collision_area_entered"]

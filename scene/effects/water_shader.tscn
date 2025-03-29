@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://bllyvqlwaqdp1"]
+
+[ext_resource type="Shader" path="res://shader/water.gdshader" id="1_x42mr"]
+[ext_resource type="Texture2D" uid="uid://bf5rlyueq8ma6" path="res://icon.svg" id="2_jklgw"]
+[ext_resource type="Script" path="res://code/shader/water_shader.gd" id="3_mfkv2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4n8pg"]
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kbvp4"]
+resource_local_to_scene = true
+seamless = true
+seamless_blend_skirt = 0.321
+noise = SubResource("FastNoiseLite_4n8pg")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hvoey"]
+noise_type = 4
+frequency = 0.0575
+offset = Vector3(0, 169.49, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p174q"]
+seamless = true
+seamless_blend_skirt = 0.217
+noise = SubResource("FastNoiseLite_hvoey")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vlhr"]
+resource_local_to_scene = true
+shader = ExtResource("1_x42mr")
+shader_parameter/color_tint = Color(0.180392, 0.478431, 0.427451, 0.72549)
+shader_parameter/color_top = Color(0.796078, 0.796078, 0.796078, 0.737255)
+shader_parameter/top_strength = 0.2
+shader_parameter/intensity = 0.065
+shader_parameter/scale_distortion = Vector2(0.2, 0.45)
+shader_parameter/speed = 0.05
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/y_zoom = 1.49831
+shader_parameter/noise = SubResource("NoiseTexture2D_kbvp4")
+shader_parameter/noise_top = SubResource("NoiseTexture2D_p174q")
+
+[node name="water_shader" type="Sprite2D"]
+z_index = 10
+material = SubResource("ShaderMaterial_4vlhr")
+texture = ExtResource("2_jklgw")
+script = ExtResource("3_mfkv2")
+
+[connection signal="item_rect_changed" from="." to="." method="_on_water_shader_item_rect_changed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://x5bs5fp36g7i"]
+
+[sub_resource type="Curve" id="Curve_h2862"]
+_data = [Vector2(0, 0.593406), 0.0, 0.0, 0, 0, Vector2(0.540323, 0.769231), 0.0, 0.0, 0, 0, Vector2(0.798387, 0.604396), -1.65886, -1.65886, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_rfdb8"]
+offsets = PackedFloat32Array(0, 0.25, 1)
+colors = PackedColorArray(0.93, 0.73687, 0.1023, 1, 0.94, 0.910547, 0.0564, 1, 0.971205, 0.844918, 0.584925, 1)
+
+[node name="grind" type="CPUParticles2D"]
+amount = 20
+explosiveness = 0.24
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(3, 1)
+direction = Vector2(-1, -0.4)
+spread = 20.0
+gravity = Vector2(0, 30)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+scale_amount_curve = SubResource("Curve_h2862")
+color = Color(1, 0.6535, 0.37, 1)
+color_ramp = SubResource("Gradient_rfdb8")

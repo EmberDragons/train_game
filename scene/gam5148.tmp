@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdmx3lyholnfv"]
+
+[ext_resource type="PackedScene" uid="uid://dmsklvfxioa7e" path="res://scene/train/train.tscn" id="6_x8rti"]
+[ext_resource type="PackedScene" uid="uid://djrc347tqqu2m" path="res://scene/train/wagon_coal.tscn" id="7_5ojhy"]
+[ext_resource type="FontFile" uid="uid://dtxvt3xiy0jfc" path="res://fonts/Bitmgothic.otf" id="7_kv3i8"]
+[ext_resource type="PackedScene" uid="uid://dx6nfdppe8xsw" path="res://scene/train/wagon_hay.tscn" id="8_3lvsk"]
+[ext_resource type="PackedScene" uid="uid://bogcjp77rerph" path="res://scene/utilities/camera/camera_2d.tscn" id="11_k21lf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq5hi"]
+font = ExtResource("7_kv3i8")
+font_size = 100
+
+[node name="Game" type="Node2D"]
+
+[node name="track" type="Node" parent="."]
+
+[node name="Camera2D" parent="." instance=ExtResource("11_k21lf")]
+position = Vector2(145, -47)
+scale = Vector2(2.19669, 1.57275)
+zoom = Vector2(2, 2)
+
+[node name="train_main" parent="." instance=ExtResource("6_x8rti")]
+position = Vector2(144, 39)
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="speed" type="Label" parent="ui"]
+offset_left = 968.0
+offset_top = 459.0
+offset_right = 1131.0
+offset_bottom = 559.0
+text = "100"
+label_settings = SubResource("LabelSettings_iq5hi")
+metadata/_edit_use_anchors_ = true
+
+[node name="wagons" type="Node2D" parent="."]
+position = Vector2(142, 38)
+
+[node name="wagon" parent="wagons" instance=ExtResource("7_5ojhy")]
+position = Vector2(63, -5)
+
+[node name="wagon2" parent="wagons" instance=ExtResource("8_3lvsk")]
+position = Vector2(122, -4)

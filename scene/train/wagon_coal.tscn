@@ -1,0 +1,120 @@
+[gd_scene load_steps=17 format=3 uid="uid://djrc347tqqu2m"]
+
+[ext_resource type="Script" path="res://code/wagon/wagon_script.gd" id="1_ae6ns"]
+[ext_resource type="Texture2D" uid="uid://djqboaoo655fl" path="res://assets/train/v1_wagon_coal-sheet.png" id="1_tpwen"]
+[ext_resource type="Texture2D" uid="uid://btixgwuxat4db" path="res://assets/train/v1_weel.png" id="2_ugjvj"]
+[ext_resource type="Script" path="res://code/train/weel_mvt.gd" id="3_buwce"]
+[ext_resource type="PackedScene" uid="uid://x5bs5fp36g7i" path="res://scene/train/vfx_train/grind.tscn" id="5_xopr8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sk0k"]
+size = Vector2(16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa08b"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiw18"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj1df"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7v2o"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0jms"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq5bq"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt37k"]
+atlas = ExtResource("1_tpwen")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhsm5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa08b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiw18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj1df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7v2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0jms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq5bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt37k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juxgq"]
+size = Vector2(2, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twsxn"]
+size = Vector2(25, 10)
+
+[node name="wagon" type="CharacterBody2D"]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_ae6ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6sk0k")
+
+[node name="graphics" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("ArrWeels")]
+sprite_frames = SubResource("SpriteFrames_hhsm5")
+autoplay = "default"
+offset = Vector2(0, -11)
+script = ExtResource("3_buwce")
+ArrWeels = [NodePath("V1Weel4"), NodePath("V1Weel7")]
+
+[node name="V1Weel4" type="Sprite2D" parent="graphics"]
+position = Vector2(-18.9491, 0.99074)
+scale = Vector2(0.591821, 0.58179)
+texture = ExtResource("2_ugjvj")
+
+[node name="V1Weel7" type="Sprite2D" parent="graphics"]
+position = Vector2(20.0509, 0.99074)
+scale = Vector2(0.591821, 0.58179)
+texture = ExtResource("2_ugjvj")
+
+[node name="track_detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="track_detection"]
+scale = Vector2(2.07, 1)
+shape = SubResource("RectangleShape2D_juxgq")
+
+[node name="collision" type="Area2D" parent="." groups=["wagon"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision" groups=["wagon"]]
+position = Vector2(7.45058e-07, -6.25)
+shape = SubResource("RectangleShape2D_twsxn")
+
+[node name="rotate_point" type="Sprite2D" parent="."]
+
+[node name="grind" parent="rotate_point" instance=ExtResource("5_xopr8")]
+position = Vector2(-22.5, 3.75)
+scale = Vector2(-1, 1)
+emitting = false
+
+[connection signal="area_entered" from="track_detection" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="collision" to="." method="_on_collision_area_entered"]

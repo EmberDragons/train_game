@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm25xdg1v2oiq"]
+
+[ext_resource type="Script" path="res://code/track/track.gd" id="1_ljqhx"]
+[ext_resource type="Texture2D" uid="uid://cmlar77njw3gh" path="res://assets/tracks/track_left.png" id="2_kwnww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpf5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laqb4"]
+size = Vector2(9.00003, 7.99997)
+
+[node name="left_up" type="StaticBody2D"]
+script = ExtResource("1_ljqhx")
+old_for_x = Array[String](["left", ""])
+old_for_y = Array[String](["up", ""])
+type = "left_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_tpf5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("2_kwnww")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["track"]]
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_laqb4")
