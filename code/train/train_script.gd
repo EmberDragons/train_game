@@ -292,6 +292,7 @@ func move_train():
 		audio_manager.train_running_a(current_Speed/MAX_SPEED)
 		position+=current_Speed*vectorDir
 
+	
 
 func _process(delta):
 	# Smoothly interpolate towards the target rotation
@@ -446,6 +447,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			start_stop() 
 			obj_parent.level+=1
 			if obj_parent in dict_people:
+				print(dict_people[obj_parent])
 				var nb_people_down = dict_people[obj_parent]
 				dict_people[obj_parent] = 0
 				money+=nb_people_down*price_per_people
@@ -464,6 +466,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 				obj_parent.current_pers = 0
 			else:
 				var pass_to_add = max_nb_passenger_per_wagon*number_wagon-passengers
+				if passengers > max_nb_passenger_per_wagon*number_wagon:
+					pass_to_add = 0
 				passengers+=pass_to_add
 				
 				var people = obj_parent.person_destination

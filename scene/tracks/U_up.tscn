@@ -193,7 +193,7 @@ size = Vector2(7, 7.5)
 [node name="left_up_right" type="StaticBody2D"]
 script = ExtResource("1_q5vct")
 old_for_x = Array[String](["left", "right"])
-old_for_y = Array[String](["", "up"])
+old_for_y = Array[String](["up", ""])
 type = "U_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -206,7 +206,7 @@ animation = &"left"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rf1ep")
-animation = &"right"
+animation = &"left"
 
 [node name="Area2D" type="Area2D" parent="." groups=["track"]]
 
